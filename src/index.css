@@ -4,8 +4,37 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   background-color: #282726;
   font-family: "Hanken Grotesk", sans-serif;
   font-optical-sizing: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.6rem;
+  text-align: center;
+  padding: 7rem;
+}
+
+/** Header section */
+
+header {
+  color: #F9F4DA;
+  font-size: 2rem;
+  max-width: 350px;
+}
+
+header h1 {
+  text-wrap: nowrap;
+  margin-bottom: 0.4rem;
+}
+
+header span {
+  color: #8E8E8E;
+  font-size: 1.4rem;
 }
