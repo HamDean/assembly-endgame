@@ -1,11 +1,11 @@
 import Header from "./components/Header";
-import LanguageBlock from "./components/LanguageBlock";
+import LanguagesSection from "./components/LanguagesSection";
 
 const App = () => {
   return (
     <main>
       <Header />
-      <LanguageBlock />
+      <LanguagesSection />
     </main>
   );
 };

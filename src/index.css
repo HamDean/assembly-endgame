@@ -52,3 +52,12 @@ header span {
   padding: 0.5rem;
   border-radius: 0.3rem;
 }
+
+.lang-sec {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 30rem;
+}

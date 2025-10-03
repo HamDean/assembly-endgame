@@ -1,6 +1,12 @@
-const LanguageBlock = () => {
+const LanguageBlock = ({ language, textColor, bgColor }) => {
+  const styles = {
+    color: textColor,
+    backgroundColor: bgColor,
+  };
   return (
-    <div className="lang-block">Javascript</div>
-  )
-}
-export default LanguageBlock
+    <div style={styles} className="lang-block">
+      {language}
+    </div>
+  );
+};
+export default LanguageBlock;
