@@ -1,7 +1,13 @@
-const RandomLetterBlock = ({ letter }) => {
+const RandomLetterBlock = ({ letter, guessedLetters }) => {
   return (
     <div className="rand-block">
-      <span>{letter}</span>
+      <span
+        className={`${
+          guessedLetters?.includes(letter.toUpperCase()) ? "" : "not-guessed"
+        }`}
+      >
+        {letter}
+      </span>
     </div>
   );
 };

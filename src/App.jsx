@@ -26,7 +26,7 @@ const App = () => {
     <main>
       <Header />
       <LanguagesSection />
-      <RandomWordSection randomWord={randomWord} />
+      <RandomWordSection randomWord={randomWord} guessedLetters={guessedLetters} />
       <Letters guessedLetters={guessedLetters} randomWord={randomWord} />
     </main>
   );
