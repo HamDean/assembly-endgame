@@ -8,15 +8,19 @@ html {
   font-size: 62.5%;
 }
 
+main,
 body {
-  background-color: #282726;
-  font-family: "Hanken Grotesk", sans-serif;
-  font-optical-sizing: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 3.6rem;
+}
+
+body {
+  background-color: #282726;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-optical-sizing: auto;
   text-align: center;
   padding: 7rem;
 }
@@ -24,7 +28,7 @@ body {
 /** Header section */
 
 header {
-  color: #F9F4DA;
+  color: #f9f4da;
   font-size: 2rem;
   max-width: 350px;
 }
@@ -35,6 +39,16 @@ header h1 {
 }
 
 header span {
-  color: #8E8E8E;
+  color: #8e8e8e;
   font-size: 1.4rem;
+}
+
+/** Languages section  */
+.lang-block {
+  background-color: #E2680F;
+  height: 25px;
+  font-size: 1.2rem;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
 }
