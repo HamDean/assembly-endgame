@@ -45,7 +45,7 @@ header span {
 
 /** Languages section  */
 .lang-block {
-  background-color: #E2680F;
+  background-color: #e2680f;
   height: 25px;
   font-size: 1.2rem;
   color: white;
@@ -55,7 +55,7 @@ header span {
 }
 
 .lost .lang-block::before {
-  content: '💀';
+  content: "💀";
   position: absolute;
   left: 0;
   top: 0;
@@ -81,10 +81,19 @@ header span {
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
-  color: #F9F4DA;
+  color: #f9f4da;
   background-color: #323232;
   font-size: 1.8rem;
   height: 4rem;
   width: 4rem;
-  border-bottom: 2px solid #F9F4DA;
+  border-bottom: 2px solid #f9f4da;
+}
+
+.not-guessed {
+  display: none;
+}
+
+.rand-section {
+  display: flex;
+  gap: 0.2rem;
 }

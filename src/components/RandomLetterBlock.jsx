@@ -1,6 +1,8 @@
 const RandomLetterBlock = ({ letter }) => {
   return (
-    <div className="rand-block">{letter}</div>
-  )
-}
-export default RandomLetterBlock
+    <div className="rand-block">
+      <span>{letter}</span>
+    </div>
+  );
+};
+export default RandomLetterBlock;
