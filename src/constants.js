@@ -9,3 +9,24 @@ export const languagesBlocksInfo = [
     { language: 'Ruby', textColor: 'white', bgColor: '#D02B2B'},
     { language: 'Assembly', textColor: 'white', bgColor: '#2D519F'},
 ]
+
+const words = [
+  "apple","stone","chair","green","plant","water","light","earth","music","table",
+  "sweet","house","dream","cloud","smile","heart","river","bread","field","storm",
+  "grape","flame","shine","woods","track","ocean","plain","roads","grass","world",
+  "paint","knife","sword","fruit","pearl","candy","glass","wheat","flock","mount",
+  "sheep","charm","brick","tower","flute","crown","beach","shore","dance","story",
+  "lover","noble","giant","magic","frost","steel","flask","crane","flock","quiet",
+  "cabin","flame","dream","spark","bliss","truth","stone","ghost","angel","storm",
+  "blood","grave","tiger","piano","queen","zebra","raven","camel","panda","eagle",
+  "whale","shark","otter","koala","sloth","moose","horse","sheep","goose","lynx",
+  "deer","wolf","lion","orca","frog","crow","hawk","duck","moth","bear"
+];
+
+
+export const alphabet = [
+  "A","B","C","D","E","F","G",
+  "H","I","J","K","L","M","N",
+  "O","P","Q","R","S","T","U",
+  "V","W","X","Y","Z"
+];

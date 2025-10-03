@@ -97,3 +97,26 @@ header span {
   display: flex;
   gap: 0.2rem;
 }
+
+/** letters section  */
+.letter-block {
+  height: 4rem;
+  width: 4rem;
+  background-color: #FCBA29;
+  border: 1px solid #D7D7D7;
+  color: #1E1E1E;
+  border-radius: 0.4rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+.right {
+  background-color: #10A95B;
+}
+
+.wrong {
+  background-color: #EC5D49;
+}
