@@ -1,12 +1,13 @@
 import Header from "./components/Header";
 import LanguagesSection from "./components/LanguagesSection";
-import LetterBlock from "./components/LetterBlock";
+import Letters from "./components/Letters";
 
 const App = () => {
   return (
     <main>
       <Header />
       <LanguagesSection />
+      <Letters />
     </main>
   );
 };

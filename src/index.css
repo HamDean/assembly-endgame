@@ -120,3 +120,11 @@ header span {
 .wrong {
   background-color: #EC5D49;
 }
+
+.letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  max-width: 48rem;
+}
