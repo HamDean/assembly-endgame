@@ -149,3 +149,15 @@ header span {
 .game-state p {
   font-size: 1.6rem;
 }
+
+button {
+  background-color: #11B5E5;
+  border: 1px solid #D7D7D7;
+  outline: none;
+  color: #1E1E1E;
+  width: 22.8rem;
+  height: 4rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: bold;
+}

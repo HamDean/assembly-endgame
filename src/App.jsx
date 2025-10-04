@@ -7,16 +7,14 @@ import RandomWordSection from "./components/RandomWordSection";
 import { word } from "./constants";
 import { alphabet } from "./constants";
 import GameState from "./components/GameState";
+import NewGameBtn from "./components/NewGameBtn";
 
 const App = () => {
   const [randomWord, setRandomWord] = useState(() => word?.split(""));
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [attempts, setAttempts] = useState(8);
   const [lostIndxs, setLostIndxs] = useState([]);
-  let gameWon = guessedLetters.join('').toLowerCase() == randomWord.join('')
-  console.log(randomWord.join(''))
-  console.log(guessedLetters.join('').toLocaleLowerCase())
-  console.log(gameWon)
+  let gameWon = guessedLetters.join("").toLowerCase() == randomWord.join("");
 
   if (attempts == 0) {
     console.log("Attempts up");
@@ -50,7 +48,7 @@ const App = () => {
           bgColor={"#BA2A2A"}
         />
       )}
-      {gameWon  && (
+      {gameWon && (
         <GameState
           stateMessage={"You win!"}
           stateTag={"Well done! 🎊"}
@@ -63,6 +61,7 @@ const App = () => {
         guessedLetters={guessedLetters}
       />
       <Letters guessedLetters={guessedLetters} randomWord={randomWord} />
+      {(gameWon || attempts == 0) && <NewGameBtn />}
     </main>
   );
 };
