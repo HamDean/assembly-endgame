@@ -1,4 +1,4 @@
-const Notice = () => {
-  return <div className="notice">“Farewell HTML & CSS” 🫡 </div>;
+const Notice = ({ language }) => {
+  return <div className="notice">{`"Farewell ${language}" 🫡`}</div>;
 };
 export default Notice;

@@ -8,6 +8,7 @@ import { alphabet } from "./constants";
 import GameState from "./components/GameState";
 import NewGameBtn from "./components/NewGameBtn";
 import Notice from "./components/Notice";
+import { languagesBlocksInfo } from "./constants";
 
 const App = () => {
   const [randomWord, setRandomWord] = useState(() => word?.split(""));
@@ -15,8 +16,8 @@ const App = () => {
   const [attempts, setAttempts] = useState(8);
   const [lostIndxs, setLostIndxs] = useState([]);
   const isWon = randomWord.every((letter) =>
-  guessedLetters.includes(letter.toUpperCase())
-);
+    guessedLetters.includes(letter.toUpperCase())
+  );
 
   const handleGuess = (e) => {
     const letter = e.key.toUpperCase();
@@ -34,14 +35,14 @@ const App = () => {
 
   const handleClick = () => {
     setRandomWord(() => getRandomWord()?.split(""));
-    setAttempts(8)
-    setLostIndxs([])
-    setGuessedLetters([])
+    setAttempts(8);
+    setLostIndxs([]);
+    setGuessedLetters([]);
   };
 
   useEffect(() => {
     window.addEventListener("keydown", handleGuess);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -61,7 +62,13 @@ const App = () => {
           bgColor={"#10A95B"}
         />
       )}
-      <Notice />
+      {lostIndxs.length != 0 && !isWon && attempts != 0 && (
+        <Notice
+          language={
+            languagesBlocksInfo[lostIndxs[lostIndxs.length - 1]].language
+          }
+        />
+      )}
       <LanguagesSection lostInd={lostIndxs} />
       <RandomWordSection
         randomWord={randomWord}
