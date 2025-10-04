@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import LanguagesSection from "./components/LanguagesSection";
@@ -17,11 +16,6 @@ const App = () => {
   const isWon = randomWord.every((letter) =>
   guessedLetters.includes(letter.toUpperCase())
 );
-
-
-  if (attempts == 0) {
-    console.log("Attempts up");
-  }
 
   const handleGuess = (e) => {
     const letter = e.key.toUpperCase();
@@ -46,6 +40,7 @@ const App = () => {
 
   useEffect(() => {
     window.addEventListener("keydown", handleGuess);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
