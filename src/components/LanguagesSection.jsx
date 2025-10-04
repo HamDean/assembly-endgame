@@ -1,7 +1,7 @@
 import { languagesBlocksInfo } from "../constants";
 import LanguageBlock from "./LanguageBlock";
 
-const LanguagesSection = () => {
+const LanguagesSection = ({ lostInd }) => {
   return (
     <div className="lang-sec">
       {languagesBlocksInfo.map((info, index) => (
@@ -10,6 +10,7 @@ const LanguagesSection = () => {
           language={info.language}
           textColor={info.textColor}
           bgColor={info.bgColor}
+          isLost={lostInd?.includes(index)}
         />
       ))}
     </div>

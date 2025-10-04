@@ -3,21 +3,29 @@ import Header from "./components/Header";
 import LanguagesSection from "./components/LanguagesSection";
 import Letters from "./components/Letters";
 import RandomWordSection from "./components/RandomWordSection";
-import { getRandomWord } from "./constants";
+import { word } from "./constants";
 import { alphabet } from "./constants";
 
 const App = () => {
-  const [randomWord, setRandomWord] = useState(() => getRandomWord()?.split(""));
+  const [randomWord, setRandomWord] = useState(() => word?.split(""));
   const [guessedLetters, setGuessedLetters] = useState([]);
+  const [attempts, setAttempts] = useState(word.length);
+  const [lostIndxs, setLostIndxs] = useState([]);
+  console.log(lostIndxs);
 
-  console.log(guessedLetters);
+  const handleGuess = (e) => {
+    setAttempts((prevAttempts) => prevAttempts - 1);
+    const letter = e.key.toUpperCase();
 
- const handleGuess = (e) => {
-  const letter = e.key.toUpperCase();
-  if (alphabet.includes(letter)) {
-    setGuessedLetters((prev) => [...prev, letter]);
-  }
-};
+    if (alphabet.includes(letter)) {
+      setGuessedLetters((prev) => [...prev, letter]);
+
+      if(!randomWord.includes(e.key)){
+        setLostIndxs(prevIndx => [...prevIndx, prevIndx.length])
+      }
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("keydown", handleGuess);
   }, []);
@@ -25,8 +33,11 @@ const App = () => {
   return (
     <main>
       <Header />
-      <LanguagesSection />
-      <RandomWordSection randomWord={randomWord} guessedLetters={guessedLetters} />
+      <LanguagesSection lostInd={lostIndxs} />
+      <RandomWordSection
+        randomWord={randomWord}
+        guessedLetters={guessedLetters}
+      />
       <Letters guessedLetters={guessedLetters} randomWord={randomWord} />
     </main>
   );

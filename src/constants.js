@@ -24,9 +24,11 @@ const words = [
 ];
 
 
-export function getRandomWord(){
+function getRandomWord(){
   return words[Math.ceil(Math.random() * words.length)]
 }
+
+export const word = getRandomWord()
 
 export const alphabet = [
   "A","B","C","D","E","F","G",
