@@ -13,6 +13,10 @@ const App = () => {
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [attempts, setAttempts] = useState(8);
   const [lostIndxs, setLostIndxs] = useState([]);
+  let gameWon = guessedLetters.join('').toLowerCase() == randomWord.join('')
+  console.log(randomWord.join(''))
+  console.log(guessedLetters.join('').toLocaleLowerCase())
+  console.log(gameWon)
 
   if (attempts == 0) {
     console.log("Attempts up");
@@ -44,6 +48,13 @@ const App = () => {
           stateMessage={"Game over!"}
           stateTag={"You lose! Better start learning Assembly 😭"}
           bgColor={"#BA2A2A"}
+        />
+      )}
+      {gameWon  && (
+        <GameState
+          stateMessage={"You win!"}
+          stateTag={"Well done! 🎊"}
+          bgColor={"#10A95B"}
         />
       )}
       <LanguagesSection lostInd={lostIndxs} />
