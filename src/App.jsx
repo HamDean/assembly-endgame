@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import LanguagesSection from "./components/LanguagesSection";
 import Letters from "./components/Letters";
 import RandomWordSection from "./components/RandomWordSection";
-import { word } from "./constants";
+import { getRandomWord, word } from "./constants";
 import { alphabet } from "./constants";
 import GameState from "./components/GameState";
 import NewGameBtn from "./components/NewGameBtn";
@@ -14,7 +14,10 @@ const App = () => {
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [attempts, setAttempts] = useState(8);
   const [lostIndxs, setLostIndxs] = useState([]);
-  let gameWon = guessedLetters.join("").toLowerCase() == randomWord.join("");
+  const isWon = randomWord.every((letter) =>
+  guessedLetters.includes(letter.toUpperCase())
+);
+
 
   if (attempts == 0) {
     console.log("Attempts up");
@@ -34,6 +37,13 @@ const App = () => {
     }
   };
 
+  const handleClick = () => {
+    setRandomWord(() => getRandomWord()?.split(""));
+    setAttempts(8)
+    setLostIndxs([])
+    setGuessedLetters([])
+  };
+
   useEffect(() => {
     window.addEventListener("keydown", handleGuess);
   }, []);
@@ -48,7 +58,7 @@ const App = () => {
           bgColor={"#BA2A2A"}
         />
       )}
-      {gameWon && (
+      {isWon && (
         <GameState
           stateMessage={"You win!"}
           stateTag={"Well done! 🎊"}
@@ -61,7 +71,7 @@ const App = () => {
         guessedLetters={guessedLetters}
       />
       <Letters guessedLetters={guessedLetters} randomWord={randomWord} />
-      {(gameWon || attempts == 0) && <NewGameBtn />}
+      {(isWon || attempts == 0) && <NewGameBtn handleClick={handleClick} />}
     </main>
   );
 };

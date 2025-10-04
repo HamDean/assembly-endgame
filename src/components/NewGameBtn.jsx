@@ -1,6 +1,6 @@
-const NewGameBtn = () => {
+const NewGameBtn = ({ handleClick}) => {
   return (
-    <button>New Game</button>
+    <button onClick={handleClick}>New Game</button>
   )
 }
 export default NewGameBtn

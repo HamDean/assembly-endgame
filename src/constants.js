@@ -24,7 +24,7 @@ const words = [
 ];
 
 
-function getRandomWord(){
+export function getRandomWord(){
   return words[Math.ceil(Math.random() * words.length)]
 }
 
