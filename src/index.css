@@ -161,3 +161,18 @@ button {
   cursor: pointer;
   font-weight: bold;
 }
+
+.notice {
+  background-color: #7A5EA7;
+  width: 35rem;
+  height: 6rem;
+  border-radius: 0.4rem;
+  border: 1px dashed #323232;
+  color: #F9F4DA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-style: italic;
+}

@@ -7,6 +7,7 @@ import { getRandomWord, word } from "./constants";
 import { alphabet } from "./constants";
 import GameState from "./components/GameState";
 import NewGameBtn from "./components/NewGameBtn";
+import Notice from "./components/Notice";
 
 const App = () => {
   const [randomWord, setRandomWord] = useState(() => word?.split(""));
@@ -60,6 +61,7 @@ const App = () => {
           bgColor={"#10A95B"}
         />
       )}
+      <Notice />
       <LanguagesSection lostInd={lostIndxs} />
       <RandomWordSection
         randomWord={randomWord}
