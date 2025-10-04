@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import LanguagesSection from "./components/LanguagesSection";
@@ -5,23 +6,28 @@ import Letters from "./components/Letters";
 import RandomWordSection from "./components/RandomWordSection";
 import { word } from "./constants";
 import { alphabet } from "./constants";
+import GameState from "./components/GameState";
 
 const App = () => {
   const [randomWord, setRandomWord] = useState(() => word?.split(""));
   const [guessedLetters, setGuessedLetters] = useState([]);
-  const [attempts, setAttempts] = useState(word.length);
+  const [attempts, setAttempts] = useState(8);
   const [lostIndxs, setLostIndxs] = useState([]);
-  console.log(lostIndxs);
+
+  if (attempts == 0) {
+    console.log("Attempts up");
+  }
 
   const handleGuess = (e) => {
-    setAttempts((prevAttempts) => prevAttempts - 1);
     const letter = e.key.toUpperCase();
 
     if (alphabet.includes(letter)) {
       setGuessedLetters((prev) => [...prev, letter]);
 
-      if(!randomWord.includes(e.key)){
-        setLostIndxs(prevIndx => [...prevIndx, prevIndx.length])
+      if (!randomWord.includes(e.key)) {
+        setAttempts((prevAttempts) => prevAttempts - 1);
+
+        setLostIndxs((prevIndx) => [...prevIndx, prevIndx.length]);
       }
     }
   };
@@ -33,6 +39,13 @@ const App = () => {
   return (
     <main>
       <Header />
+      {attempts == 0 && (
+        <GameState
+          stateMessage={"Game over!"}
+          stateTag={"You lose! Better start learning Assembly 😭"}
+          bgColor={"#BA2A2A"}
+        />
+      )}
       <LanguagesSection lostInd={lostIndxs} />
       <RandomWordSection
         randomWord={randomWord}
