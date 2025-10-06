@@ -41,7 +41,7 @@ const App = () => {
         randomWord={randomWord}
         guessedLetters={guessedLetters}
       />
-      <Letters guessedLetters={guessedLetters} randomWord={randomWord} />
+      <Letters gameOver={isLost || isWon} guessedLetters={guessedLetters} randomWord={randomWord} />
       {(isWon || isLost) && <NewGameBtn handleClick={handleClick} />}
     </main>
   );
