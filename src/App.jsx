@@ -6,6 +6,7 @@ import GameState from "./components/GameState";
 import NewGameBtn from "./components/NewGameBtn";
 import Notice from "./components/Notice";
 import { languagesBlocksInfo } from "./constants";
+import Confetti from "react-confetti";
 import useGame from "./hooks/useGame";
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
 
   return (
     <main>
+      {isWon && <Confetti />}
       <Header />
       {isLost && (
         <GameState
