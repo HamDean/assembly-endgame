@@ -1,16 +1,90 @@
-# React + Vite
+# Assembly End Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A word-guessing challenge where you have a limited number of attempts to save a list of programming languages — or the last one, *Assembly*. Can you guess the word before it's too late?
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎮 Overview
 
-## React Compiler
+**Assembly End Game** is a fun, hangman-style game built with React.
+The goal is simple — guess the hidden word letter by letter using your keyboard (on-screen or physical) before you run out of attempts.
+Each wrong guess costs you a “language” — once you lose them all, it’s *Game Over*.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Guess letters using both **on-screen buttons** and your **physical keyboard**
+* **Limited attempts** — every wrong guess brings you closer to losing
+* Displays correct and incorrect guesses with color feedback
+* A **reset button** to start a new round anytime
+* Fully functional **win/lose detection**
+* Smooth and responsive gameplay built with React
+
+---
+
+## 🧰 Built With
+
+* **React** – component-based UI
+* **Plain CSS** – for custom styling and responsiveness
+* **Netlify** – for deployment (link to be added soon)
+
+---
+
+## ⚙️ Getting Started
+
+Follow these steps to run the project locally:
+
+```bash
+# Clone this repository
+git clone https://github.com/yourusername/assembly-end-game.git
+
+# Navigate to the project directory
+cd assembly-end-game
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+The game will run on `http://localhost:5173/` (or as shown in your terminal).
+
+---
+
+## 🧠 What I Learned
+
+* How to manage **keyboard events** effectively in React
+* How to synchronize input between **click and key events**
+* Improved understanding of **React state updates** and event listeners
+* Clean code practices through **custom hooks** and separation of concerns
+
+---
+
+## 🚀 Future Improvements
+
+* Add sound effects and animations
+* Include difficulty levels (easy / hard)
+* Add score tracking or timer mode
+* Create a leaderboard using local storage
+
+---
+
+## 🔗 Live Demo
+
+[**Live Site** – Coming soon](#)
+
+---
+
+## 🙌 Acknowledgments
+
+Inspired by classic word-guessing games and built as a fun project to strengthen React event handling skills.
+
+---
+
+## 🧑‍💻 Author
+
+**Nurudeen Hamzah**
+Frontend Developer & Mathematics Student
+[GitHub](https://github.com/yourusername)
