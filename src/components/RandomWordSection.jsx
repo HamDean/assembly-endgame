@@ -1,6 +1,6 @@
 import RandomLetterBlock from "./RandomLetterBlock";
 
-const RandomWordSection = ({ randomWord, guessedLetters }) => {
+const RandomWordSection = ({ randomWord, guessedLetters, isLost }) => {
   return (
     <div className="rand-section">
       {randomWord.map((letter, index) => (
@@ -8,6 +8,7 @@ const RandomWordSection = ({ randomWord, guessedLetters }) => {
           key={index}
           letter={letter}
           guessedLetters={guessedLetters}
+          isLost={isLost}
         />
       ))}
     </div>
