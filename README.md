@@ -73,18 +73,13 @@ The game will run on `http://localhost:5173/` (or as shown in your terminal).
 
 ## 🔗 Live Demo
 
-[**Live Site** – Coming soon](#)
+[**Live Site**](https://assembly-end-game-hangman.netlify.app/)
 
 ---
 
-## 🙌 Acknowledgments
-
-Inspired by classic word-guessing games and built as a fun project to strengthen React event handling skills.
-
----
 
 ## 🧑‍💻 Author
 
 **Nurudeen Hamzah**
-Frontend Developer & Mathematics Student
-[GitHub](https://github.com/yourusername)
+Fullstack Developer
+[GitHub](https://github.com/HamDean)
