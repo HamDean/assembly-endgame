@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import LanguagesSection from "./components/LanguagesSection";
@@ -18,6 +19,7 @@ const App = () => {
   const isWon = randomWord.every((letter) =>
     guessedLetters.includes(letter.toUpperCase())
   );
+  const isLost = attempts == 0
 
   const handleGuess = (e) => {
     const letter = e.key.toUpperCase();
@@ -41,14 +43,15 @@ const App = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("keydown", handleGuess);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if(!isWon && attempts > 0) window.addEventListener("keydown", handleGuess);
+
+    return () => window.removeEventListener('keydown', handleGuess)
+  }, [isWon, attempts]);
 
   return (
     <main>
       <Header />
-      {attempts == 0 && (
+      {isLost && (
         <GameState
           stateMessage={"Game over!"}
           stateTag={"You lose! Better start learning Assembly 😭"}
@@ -62,10 +65,10 @@ const App = () => {
           bgColor={"#10A95B"}
         />
       )}
-      {lostIndxs.length != 0 && !isWon && attempts != 0 && (
+      {lostIndxs.length != 0 && !isWon && !isLost && (
         <Notice
           language={
-            languagesBlocksInfo[lostIndxs[lostIndxs.length - 1]].language
+            languagesBlocksInfo[lostIndxs[lostIndxs.length - 1]]?.language
           }
         />
       )}
@@ -75,7 +78,7 @@ const App = () => {
         guessedLetters={guessedLetters}
       />
       <Letters guessedLetters={guessedLetters} randomWord={randomWord} />
-      {(isWon || attempts == 0) && <NewGameBtn handleClick={handleClick} />}
+      {(isWon ||  isLost) && <NewGameBtn handleClick={handleClick} />}
     </main>
   );
 };
