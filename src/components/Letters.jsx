@@ -1,7 +1,7 @@
 import { alphabet } from "../constants";
 import LetterBlock from "./LetterBlock";
 
-const Letters = ({ guessedLetters, randomWord, gameOver }) => {
+const Letters = ({ guessedLetters, randomWord, gameOver, handleGuess }) => {
   return (
     <div className="letters">
       {alphabet.map((letter) => (
@@ -11,6 +11,7 @@ const Letters = ({ guessedLetters, randomWord, gameOver }) => {
           letter={letter}
           guessedLetters={guessedLetters}
           randomWord={randomWord}
+          handleGuess={handleGuess}
         />
       ))}
     </div>

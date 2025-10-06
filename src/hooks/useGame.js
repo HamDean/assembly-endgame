@@ -2,27 +2,29 @@
 import { useState, useEffect } from "react";
 import { word, alphabet, getRandomWord } from "../constants";
 
-export default function useGame(){
- const [randomWord, setRandomWord] = useState(() => word?.split(""));
+export default function useGame() {
+  const [randomWord, setRandomWord] = useState(() => word?.split(""));
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [attempts, setAttempts] = useState(8);
   const [lostIndxs, setLostIndxs] = useState([]);
   const isWon = randomWord?.every((letter) =>
     guessedLetters.includes(letter.toUpperCase())
   );
-  const isLost = attempts == 0
+  const isLost = attempts == 0;
 
-  const handleGuess = (e) => {
-    const letter = e.key.toUpperCase();
+  const handleGuess = (letter) => {
+    letter = letter.toUpperCase();
 
-    if (alphabet.includes(letter)) {
-      setGuessedLetters((prev) => [...prev, letter]);
+    if (!alphabet.includes(letter) || isWon || isLost) return;
 
-      if (!randomWord.includes(e.key)) {
-        setAttempts((prevAttempts) => prevAttempts - 1);
+    setGuessedLetters((prev) => {
+      if (prev.includes(letter)) return prev; // avoid duplicates
+      return [...prev, letter];
+    });
 
-        setLostIndxs((prevIndx) => [...prevIndx, prevIndx.length]);
-      }
+    if (!randomWord.includes(letter.toLowerCase())) {
+      setAttempts((prev) => prev - 1);
+      setLostIndxs((prev) => [...prev, prev.length]);
     }
   };
 
@@ -34,9 +36,9 @@ export default function useGame(){
   };
 
   useEffect(() => {
-    if(!isWon && attempts > 0) window.addEventListener("keydown", handleGuess);
-
-    return () => window.removeEventListener('keydown', handleGuess)
+    const onKeyDown = (e) => handleGuess(e.key);
+    if (!isWon && attempts > 0) window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [isWon, attempts]);
 
   return {
@@ -45,6 +47,7 @@ export default function useGame(){
     lostIndxs,
     handleClick,
     randomWord,
-    guessedLetters
-  }
+    guessedLetters,
+    handleGuess
+  };
 }

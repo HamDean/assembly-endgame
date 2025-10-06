@@ -111,6 +111,7 @@ header span {
   justify-content: center;
   align-items: center;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .right {

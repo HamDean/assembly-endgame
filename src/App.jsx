@@ -9,8 +9,15 @@ import { languagesBlocksInfo } from "./constants";
 import useGame from "./hooks/useGame";
 
 const App = () => {
-  const { isLost, isWon, lostIndxs, randomWord, guessedLetters, handleClick } =
-    useGame();
+  const {
+    isLost,
+    isWon,
+    lostIndxs,
+    randomWord,
+    guessedLetters,
+    handleClick,
+    handleGuess,
+  } = useGame();
 
   return (
     <main>
@@ -42,7 +49,12 @@ const App = () => {
         guessedLetters={guessedLetters}
         isLost={isLost}
       />
-      <Letters gameOver={isLost || isWon} guessedLetters={guessedLetters} randomWord={randomWord} />
+      <Letters
+        handleGuess={handleGuess}
+        gameOver={isLost || isWon}
+        guessedLetters={guessedLetters}
+        randomWord={randomWord}
+      />
       {(isWon || isLost) && <NewGameBtn handleClick={handleClick} />}
     </main>
   );
