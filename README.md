@@ -16,7 +16,6 @@ Each wrong guess costs you a “language” — once you lose them all, it’s *
 ## 🖼️ Screenshot
 
 ![Assembly End Game Screenshot](./game-screenshot.png)
-*(Add your screenshot file in the project root and rename it accordingly.)*
 
 ---
 
@@ -35,7 +34,7 @@ Each wrong guess costs you a “language” — once you lose them all, it’s *
 
 * **React** – component-based UI
 * **Plain CSS** – for custom styling and responsiveness
-* **Netlify** – for deployment *(link to be added soon)*
+* **Netlify** – for deployment 
 
 ---
 
